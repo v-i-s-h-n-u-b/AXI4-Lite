@@ -52,18 +52,18 @@ module tb_axi4_lite_slave;
     // Clock generation: 10ns clock period (100MHz)
     initial begin
         ACLK = 0;
-        forever #5 ACLK = ~ACLK;  // Toggle clock every 5ns
+        forever #5 ACLK = ~ACLK;  
     end
 
     // Reset generation
     initial begin
         ARESETN = 0;
         #20;
-        ARESETN = 1;  // Deassert reset after 20ns
+        ARESETN = 1;  
     end
     
     initial begin
-        // Initialize signals
+        // Initializing signals
         S_ARADDR = 32'h0;
         S_ARVALID = 0;
         S_RREADY = 0;
@@ -74,18 +74,17 @@ module tb_axi4_lite_slave;
         S_WSTRB = 4'b1111;  // Full word write enable
         S_BREADY = 0;
 
-        // Wait for reset deassertion
+        // Waiting for reset deassertion
         wait(ARESETN == 1);
 
-        // Perform AXI Write transaction
+        // AXI Write transaction
         #20;
         write_axi(32'h00000004, 32'hDEADBEEF);  // Write data to address 0x00000004
 
-        // Perform AXI Read transaction
+        // AXI Read transaction
         #20;
         read_axi(32'h00000004);  // Read data from address 0x00000004
 
-        // Wait for some time and finish
         #100;
         $finish;
     end
