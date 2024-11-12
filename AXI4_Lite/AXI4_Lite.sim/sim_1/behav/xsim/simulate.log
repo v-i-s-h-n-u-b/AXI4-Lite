@@ -1,0 +1,6 @@
+Time resolution is 1 ps
+Applying Reset
+Starting write transaction
+Attempting to write: Addr = 00000010, Data = abcd1234
+Slave ready for address write.
+Address write acknowledged.

@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Tue Nov 12 01:59:28 2024
+# Process ID: 15436
+# Current directory: C:/xilinx/project_3/project_3.runs/impl_1
+# Command line: vivado.exe -log axi4_lite_master_slave_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source axi4_lite_master_slave_top.tcl -notrace
+# Log file: C:/xilinx/project_3/project_3.runs/impl_1/axi4_lite_master_slave_top.vdi
+# Journal file: C:/xilinx/project_3/project_3.runs/impl_1\vivado.jou
+# Running On        :LAPTOP-2T1N309T
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :22631
+# Processor Detail  :11th Gen Intel(R) Core(TM) i5-11300H @ 3.10GHz
+# CPU Frequency     :3110 MHz
+# CPU Physical cores:4
+# CPU Logical cores :8
+# Host memory       :8323 MB
+# Swap memory       :20401 MB
+# Total Virtual     :28724 MB
+# Available Virtual :12619 MB
+#-----------------------------------------------------------
+source axi4_lite_master_slave_top.tcl -notrace
