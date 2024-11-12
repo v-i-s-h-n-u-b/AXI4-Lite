@@ -3,46 +3,46 @@ module axi4_lite_slave #(
     parameter DATA_WIDTH = 32
 )(
     // Global Signals
-    input wire ACLK,
-    input wire ARESETN,
+    input logic ACLK,
+    input logic ARESETN,
 
     // Read Address Channel INPUTS
-    input wire [ADDRESS-1:0] S_ARADDR,
-    input wire S_ARVALID,
-    output reg S_ARREADY,
+    input logic [ADDRESS-1:0] S_ARADDR,
+    input logic S_ARVALID,
+    output logic S_ARREADY,
 
     // Read Data Channel INPUTS
-    input wire S_RREADY,
-    output reg [DATA_WIDTH-1:0] S_RDATA,
-    output reg [1:0] S_RRESP,
-    output reg S_RVALID,
+    input logic S_RREADY,
+    output logic [DATA_WIDTH-1:0] S_RDATA,
+    output logic [1:0] S_RRESP,
+    output logic S_RVALID,
 
     // Write Address Channel INPUTS
-    input wire [ADDRESS-1:0] S_AWADDR,
-    input wire S_AWVALID,
-    output reg S_AWREADY,
+    input logic [ADDRESS-1:0] S_AWADDR,
+    input logic S_AWVALID,
+    output logic S_AWREADY,
 
     // Write Data Channel INPUTS
-    input wire [DATA_WIDTH-1:0] S_WDATA,
-    input wire [3:0] S_WSTRB,
-    input wire S_WVALID,
-    output reg S_WREADY,
+    input logic [DATA_WIDTH-1:0] S_WDATA,
+    input logic [3:0] S_WSTRB,
+    input logic S_WVALID,
+    output logic S_WREADY,
 
     // Write Response Channel INPUTS
-    input wire S_BREADY,
-    output reg [1:0] S_BRESP,
-    output reg S_BVALID
+    input logic S_BREADY,
+    output logic [1:0] S_BRESP,
+    output logic S_BVALID
 );
 
     // Register definition
     localparam no_of_registers = 32;
-    reg [DATA_WIDTH-1:0] register [no_of_registers-1:0];
-    reg [ADDRESS-1:0] addr;
+    logic [DATA_WIDTH-1:0] register [no_of_registers-1:0];
+    logic [ADDRESS-1:0] addr;
 
     // AXI Write and Read Handshake Signals
-    wire write_addr_handshake = S_AWVALID && S_AWREADY;
-    wire write_data_handshake = S_WVALID && S_WREADY;
-    wire read_addr_handshake = S_ARVALID && S_ARREADY;
+    logic write_addr_handshake = S_AWVALID && S_AWREADY;
+    logic write_data_handshake = S_WVALID && S_WREADY;
+    logic read_addr_handshake = S_ARVALID && S_ARREADY;
 
     typedef enum logic [2:0] {
         IDLE, WRITE_ADDR_CHANNEL, WRITE_DATA_CHANNEL, WRESP_CHANNEL, RADDR_CHANNEL, RDATA_CHANNEL
@@ -51,8 +51,8 @@ module axi4_lite_slave #(
     state_type state, next_state;
 
     // Address alignment logic
-    wire [ADDRESS-1:2] aligned_awaddr = S_AWADDR[ADDRESS-1:2];
-    wire [ADDRESS-1:2] aligned_araddr = S_ARADDR[ADDRESS-1:2];
+    logic [ADDRESS-1:2] aligned_awaddr = S_AWADDR[ADDRESS-1:2];
+    logic [ADDRESS-1:2] aligned_araddr = S_ARADDR[ADDRESS-1:2];
 
     // AXI4-Lite Slave State Machine
     always_ff @(posedge ACLK or negedge ARESETN) begin
@@ -148,29 +148,29 @@ module axi4_lite_slave #(
 endmodule
 
 module axi4_lite_slave_top (
-    input wire ACLK,
-    input wire ARESETN,
+    input logic ACLK,
+    input logic ARESETN,
 
     // AXI4-Lite Slave I/O signals
-    input wire [31:0] S_ARADDR,
-    input wire S_ARVALID,
-    output wire S_ARREADY,
-    output wire [31:0] S_RDATA,
-    output wire [1:0] S_RRESP,
-    output wire S_RVALID,
-    input wire S_RREADY,
+    input logic [31:0] S_ARADDR,
+    input logic S_ARVALID,
+    output logic S_ARREADY,
+    output logic [31:0] S_RDATA,
+    output logic [1:0] S_RRESP,
+    output logic S_RVALID,
+    input logic S_RREADY,
 
-    input wire [31:0] S_AWADDR,
-    input wire S_AWVALID,
-    output wire S_AWREADY,
-    input wire [31:0] S_WDATA,
-    input wire [3:0] S_WSTRB,
-    input wire S_WVALID,
-    output wire S_WREADY,
+    input logic [31:0] S_AWADDR,
+    input logic S_AWVALID,
+    output logic S_AWREADY,
+    input logic [31:0] S_WDATA,
+    input logic [3:0] S_WSTRB,
+    input logic S_WVALID,
+    output logic S_WREADY,
 
-    output wire [1:0] S_BRESP,
-    output wire S_BVALID,
-    input wire S_BREADY
+    output logic [1:0] S_BRESP,
+    output logic S_BVALID,
+    input logic S_BREADY
 );
 
     axi4_lite_slave #(
