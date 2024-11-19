@@ -2,8 +2,8 @@
 
 The AXI4-Lite protocol is a simplified subset of the AXI4 (Advanced eXtensible Interface) protocol, part of the AMBA (Advanced Microcontroller Bus Architecture) specification by ARM. AXI4-Lite is designed for low-complexity, low-bandwidth memory-mapped communications, and low-latency interconnects making it ideal for control and configuration registers in hardware IP blocks. It consists of 5 channels, 2 for Reading and 3 for Writing namely:
 * READING:
- - Read Data Channel
- - Read Address Channel
+  - Read Data Channel
+  - Read Address Channel
 * WRITING:
   - Write Data Channel
   - Write Address Channel
