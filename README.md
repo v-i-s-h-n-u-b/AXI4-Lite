@@ -1,9 +1,7 @@
 ##  A custom AXI4-Lite Slave interface utilizing a MicroBlaze soft processor with a configured AXI Interconnect to enable memory-mapped communication for 32-bit operations.
 
 The AXI4-Lite protocol is a simplified subset of the AXI4 (Advanced eXtensible Interface) protocol, part of the AMBA (Advanced Microcontroller Bus Architecture) specification by ARM. AXI4-Lite is designed for low-complexity, low-bandwidth memory-mapped communications, and low-latency interconnects making it ideal for control and configuration registers in hardware IP blocks. It consists of 5 channels, 2 for Reading and 3 for Writing namely:
-
 * Reading:
- - 
  - Read Data Channel
  - Read Address Channel
 * Writing:
