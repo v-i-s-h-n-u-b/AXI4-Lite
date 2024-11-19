@@ -12,7 +12,7 @@ The AXI4-Lite protocol is a simplified subset of the AXI4 (Advanced eXtensible I
 Handshake on all 5 channels happens using VALID/READY signals. The process completes only if both VALID/READY signals are asserted during a rising clock edge. Some key aspects of AXI4-Lite are as stated below:
 * In the Read Operation, a separate Response Channel is not required because both the data and the response status are sent together from the slave to the master within the same read channel.
 * Handshake on Write Address Channel and Data Channels need not co-occur but they must occur before the Slave can send the Write Response.
-* The AXI Master need not wait for a transaction to be completed before it can initiate another one, which boosts performance.
+* The AXI Master need not wait for a transaction to be completed before it can initiate another one (Pipelined Transfers), which boosts performance.
 
 For more information on the AXI4-Lite signals and the protocol itself refer to the following links:
 * https://www.realdigital.org/doc/a9fee931f7a172423e1ba73f66ca4081
